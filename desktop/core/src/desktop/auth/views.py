@@ -88,6 +88,7 @@ def dt_login_old(request, from_modal=False):
 @login_notrequired
 @watch_login
 def dt_login(request, from_modal=False):
+  LOG.info("IP Address for debug-toolbar: " + request.META['REMOTE_ADDR'])
   redirect_to = request.REQUEST.get('next', '/')
   is_first_login_ever = first_login_ever()
   backend_names = auth_forms.get_backend_names()
