@@ -5619,28 +5619,28 @@
       var menu = ko.bindingHandlers.contextMenu.initContextMenu($tableDropMenu, $('.content-panel'));
 
       $tableDropMenu.find('.editor-drop-value').click(function () {
-        insertSqlAtCursor(lastMeta.database + '.' + lastMeta.table + ' ', 0, menu);
+        insertSqlAtCursor('`' + lastMeta.database + '`.`' + lastMeta.table + '` ', 0, menu);
       });
 
       $tableDropMenu.find('.editor-drop-select').click(function () {
-        insertSqlAtCursor('SELECT * FROM ' + lastMeta.database + '.' + lastMeta.table + ' LIMIT 100;', -1, menu);
+        insertSqlAtCursor('SELECT * FROM `' + lastMeta.database + '`.`' + lastMeta.table + '` LIMIT 100;', -1, menu);
         $tableDropMenu.hide();
       });
 
       $tableDropMenu.find('.editor-drop-insert').click(function () {
-        insertSqlAtCursor('INSERT INTO ' + lastMeta.database + '.' + lastMeta.table + ' VALUES ();', -2, menu);
+        insertSqlAtCursor('INSERT INTO `' + lastMeta.database + '`.`' + lastMeta.table + '` VALUES ();', -2, menu);
       });
 
       $tableDropMenu.find('.editor-drop-update').click(function () {
-        insertSqlAtCursor('UPDATE ' + lastMeta.database + '.' + lastMeta.table + ' SET ', 0, menu);
+        insertSqlAtCursor('UPDATE `' + lastMeta.database + '`.`' + lastMeta.table + '` SET ', 0, menu);
       });
 
       $tableDropMenu.find('.editor-drop-view').click(function () {
-        insertSqlAtCursor('DROP VIEW ' + lastMeta.database + '.' + lastMeta.table + ';', -1, menu);
+        insertSqlAtCursor('DROP VIEW `' + lastMeta.database + '`.`' + lastMeta.table + '`;', -1, menu);
       });
 
       $tableDropMenu.find('.editor-drop-drop').click(function () {
-        insertSqlAtCursor('DROP TABLE ' + lastMeta.database + '.' + lastMeta.table + ';', -1, menu);
+        insertSqlAtCursor('DROP TABLE `' + lastMeta.database + '`.`' + lastMeta.table + '`;', -1, menu);
       });
 
       $el.droppable({
