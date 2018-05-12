@@ -345,6 +345,7 @@ class SolrApi(object):
         ('wt', 'json'),
         ('rows', rows),
         ('start', start),
+        ('TZ', 'America/Los_Angeles')
     )
 
     response = self._root.get('%s/select' % collection, params)
